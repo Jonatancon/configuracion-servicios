@@ -1,0 +1,24 @@
+server:
+  port: 7000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: servicio-images
+          uri: lb://servicio-images
+          predicates:
+            - Path=/imagenes/**
+          filters:
+            - RewritePath=/imagenes/*, /
+
+        - id: servicio-persona
+          uri: lb://servicio-persona
+          predicates:
+            - Path=/persona/**
+          filters:
+            - RewritePath=/persona/*, /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
