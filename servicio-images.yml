@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:3117407195@monolito.jkkyn.mongodb.net/images?retryWrites=true&w=majority
+server:
+  port: 8081
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:8761/eureka
